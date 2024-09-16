@@ -1,13 +1,21 @@
 package com.shaunwassell.dice;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Simulator {
     public static void main(String[] args) {
-        Random rand = new Random();
+        Scanner scanner = new Scanner(System.in);
 
-        int rolledNumber = rand.nextInt(6) + 1;
-        System.out.print(display(rolledNumber));
+        System.out.println("How many dice would you like to roll?");
+        int numberOfDice = scanner.nextInt();
+
+        System.out.println("About to roll " + numberOfDice + " dice");
+
+//        Random rand = new Random();
+//
+//        int rolledNumber = rand.nextInt(6) + 1;
+//        System.out.print(display(rolledNumber));
     }
 
     static String display(int value) {
