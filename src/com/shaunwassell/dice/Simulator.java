@@ -7,22 +7,28 @@ import java.util.InputMismatchException;
 public class Simulator {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        boolean appCompleted = false;
 
-        try {
-            System.out.println("How many dice would you like to roll?");
-            int numberOfDice = scanner.nextInt();
+        do {
+            try {
+                System.out.println("How many dice would you like to roll?");
+                int numberOfDice = scanner.nextInt();
 
-            System.out.println("About to roll " + numberOfDice + " dice");
+                appCompleted = true;
 
-            Random rand = new Random();
+                System.out.println("About to roll " + numberOfDice + " dice");
 
-            for (int i = 0; i < numberOfDice; i++) {
-                int rolledNumber = rand.nextInt(6) + 1;
-                System.out.println(display(rolledNumber));
+                Random rand = new Random();
+
+                for (int i = 0; i < numberOfDice; i++) {
+                    int rolledNumber = rand.nextInt(6) + 1;
+                    System.out.println(display(rolledNumber));
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("That is not a valid number!");
+                scanner.next();
             }
-        } catch (InputMismatchException e) {
-            System.out.println("That is not a valid number!");
-        }
+        } while (!appCompleted);
     }
 
     static String display(int value) {
