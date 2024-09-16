@@ -18,11 +18,10 @@ public class WordGuessingGame {
         this.attempts = maxAttempts;
     }
 
-    public void play() {
+    public String play() {
         Scanner scanner = new Scanner(System.in);
-        boolean userHasWon = false;
 
-        while (attempts > 0 && !userHasWon) {
+        while (attempts > 0) {
             displayState();
 
             System.out.println("You have " + attempts + " attempts left...");
@@ -34,7 +33,7 @@ public class WordGuessingGame {
                 System.out.println("Correct!");
                 if (new String(guessedLetters).equals(wordToGuess)) {
                     System.out.println("You have guessed the word! You win!");
-                    userHasWon = true;
+                    return "Win";
                 }
             } else {
                 System.out.println("That guess was incorrect!");
@@ -42,9 +41,7 @@ public class WordGuessingGame {
             }
         }
 
-        if (!userHasWon) {
-            System.out.println("You are out of guesses! You lose!");
-        }
+        return "Loss";
     }
 
     private boolean processGuess(char letter) {
