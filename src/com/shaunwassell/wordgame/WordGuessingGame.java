@@ -19,6 +19,7 @@ public class WordGuessingGame {
     }
 
     public void play() {
+        System.out.println("The word is: " + wordToGuess);
         Scanner scanner = new Scanner(System.in);
 
         while (attempts > 0) {
