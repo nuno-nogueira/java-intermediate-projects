@@ -21,8 +21,9 @@ public class WordGuessingGame {
     public void play() {
         System.out.println("The word is: " + wordToGuess);
         Scanner scanner = new Scanner(System.in);
+        boolean userHasWon = false;
 
-        while (attempts > 0) {
+        while (attempts > 0 && !userHasWon) {
             System.out.println("You have " + attempts + " attempts left...");
             System.out.print("Guess a letter: ");
 
@@ -30,10 +31,18 @@ public class WordGuessingGame {
 
             if (processGuess(guess)) {
                 System.out.println("Correct!");
+                if (new String(guessedLetters).equals(wordToGuess)) {
+                    System.out.println("You have guessed the word! You win!");
+                    userHasWon = true;
+                }
             } else {
                 System.out.println("That guess was incorrect!");
                 attempts--;
             }
+        }
+
+        if (!userHasWon) {
+            System.out.println("You are out of guesses! You lose!");
         }
     }
 
