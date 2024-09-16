@@ -19,11 +19,12 @@ public class WordGuessingGame {
     }
 
     public void play() {
-        System.out.println("The word is: " + wordToGuess);
         Scanner scanner = new Scanner(System.in);
         boolean userHasWon = false;
 
         while (attempts > 0 && !userHasWon) {
+            displayState();
+
             System.out.println("You have " + attempts + " attempts left...");
             System.out.print("Guess a letter: ");
 
@@ -55,5 +56,9 @@ public class WordGuessingGame {
             }
         }
         return letterFound;
+    }
+
+    private void displayState() {
+        System.out.println("Guessed letters: " + new String(guessedLetters));
     }
 }
