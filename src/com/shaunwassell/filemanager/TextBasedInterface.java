@@ -19,6 +19,8 @@ public class TextBasedInterface implements UserInterface {
         while (true) {
             int choice = scanner.nextInt();
 
+            scanner.nextLine();
+
             switch (choice) {
                 case 1:
                     System.out.println("Enter directory path: ");
@@ -31,6 +33,7 @@ public class TextBasedInterface implements UserInterface {
                 case 3:
                     System.out.println("Enter path of file or directory to delete: ");
                     handler.onDelete(scanner.nextLine());
+                    break;
                 case 4:
                     System.out.println("Exiting...");
                     scanner.close();
