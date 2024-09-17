@@ -12,6 +12,8 @@ public class WeatherApp {
         WeatherAPI api = new WeatherAPI();
         String forecastString = api.getForecast(city);
 
+        System.out.println(forecastString);
+
         WeatherResponseParser parser = new WeatherResponseParser();
         parser.parseAndPrint(forecastString);
     }
